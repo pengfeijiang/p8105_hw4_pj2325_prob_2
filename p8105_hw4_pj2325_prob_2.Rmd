@@ -1,0 +1,45 @@
+---
+title: "p8105_hw4_pj2325_prob_2"
+author: "Pengfei Jiang, Mengqi Zhu"
+date: "2017/10/27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+> Problem 2:
+
+This problem uses the 538 datasets. Because this dataset is small and can be made public you should include that data file in your directory for this problem, and load that data file using relative paths.
+
+The project lead will load and tidy the data for this problem. Combine the data in pols-month.csv and GDP.csv based on the date / month (use lubridate::floor_date to collase dates to the first day of the month).
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readxl)
+library(haven)
+library(janitor)
+library(ggridges)
+library(ggthemes)
+library(rnoaa)
+library(stats)
+library(ggplot2)
+library(DT)
+library(dplyr)
+library(lubridate)
+```
+
+```{r message=FALSE, warning=FALSE}
+pols_month_data <- read_csv("./data/pols-month.csv") %>% 
+  clean_names() %>% 
+  mutate(mon = as.Date(mon,format = "%Y-%m-%d")) %>% 
+  mutate(first_day = lubridate::floor_date(mon, unit = "month"))
+```
+
+The collaborator will create a plot showing the GDP value over time, including the party of the president in an informative aesthetic.
+
+In this problem, Mengqi Zhu is still my collaborator as I was Weijie Liu's collaborator in the first question.
+```{r message=FALSE, warning=FALSE}
+
+```
