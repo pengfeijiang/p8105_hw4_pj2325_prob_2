@@ -58,3 +58,5 @@ combined_data %>%
     ggtitle("GDP Performance By Party of Presidents During 1947-2015") +
     ylab("GDP value") + xlab("Days")
 ```
+
+According to the plot, we can see the GDP follows a
