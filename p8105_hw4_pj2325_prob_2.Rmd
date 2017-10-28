@@ -48,5 +48,13 @@ The collaborator will create a plot showing the GDP value over time, including t
 
 In this problem, Mengqi Zhu is still my collaborator as I was Weijie Liu's collaborator in the first question.
 ```{r message=FALSE, warning=FALSE}
-
+combined_data %>%
+  select(prez_dem, first_day, value) %>%
+  mutate(value = as.numeric(value)) %>% 
+  drop_na() %>% 
+  mutate(prez_dem = recode(prez_dem,"0" = "republican", "1" ="democratic" )) %>%
+  ggplot(aes(x = first_day, y = value, color = prez_dem)) + 
+  geom_bar(aes(fill = prez_dem), stat = "identity") + 
+    ggtitle("GDP Performance By Party of Presidents During 1947-2015") +
+    ylab("GDP value") + xlab("Days")
 ```
