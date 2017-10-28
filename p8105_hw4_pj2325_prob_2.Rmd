@@ -35,6 +35,13 @@ pols_month_data <- read_csv("./data/pols-month.csv") %>%
   clean_names() %>% 
   mutate(mon = as.Date(mon,format = "%Y-%m-%d")) %>% 
   mutate(first_day = lubridate::floor_date(mon, unit = "month"))
+
+gdp_data <- read_csv("./data/GDP.csv") %>% 
+  clean_names() %>% 
+  mutate(date = as.Date(date,format = "%Y-%m-%d")) %>% 
+  mutate(first_day = lubridate::floor_date((date), unit = "month"))
+
+combined_data <- inner_join(pols_month_data, gdp_data, by = "first_day")
 ```
 
 The collaborator will create a plot showing the GDP value over time, including the party of the president in an informative aesthetic.

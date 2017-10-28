@@ -143,7 +143,14 @@ library(lubridate)</code></pre>
 <pre class="r"><code>pols_month_data &lt;- read_csv(&quot;./data/pols-month.csv&quot;) %&gt;% 
   clean_names() %&gt;% 
   mutate(mon = as.Date(mon,format = &quot;%Y-%m-%d&quot;)) %&gt;% 
-  mutate(first_day = lubridate::floor_date(mon, unit = &quot;month&quot;))</code></pre>
+  mutate(first_day = lubridate::floor_date(mon, unit = &quot;month&quot;))
+
+gdp_data &lt;- read_csv(&quot;./data/GDP.csv&quot;) %&gt;% 
+  clean_names() %&gt;% 
+  mutate(date = as.Date(date,format = &quot;%Y-%m-%d&quot;)) %&gt;% 
+  mutate(first_day = lubridate::floor_date((date), unit = &quot;month&quot;))
+
+combined_data &lt;- inner_join(pols_month_data, gdp_data, by = &quot;first_day&quot;)</code></pre>
 <p>The collaborator will create a plot showing the GDP value over time, including the party of the president in an informative aesthetic.</p>
 <p>In this problem, Mengqi Zhu is still my collaborator as I was Weijie Liu’s collaborator in the first question.</p>
 
