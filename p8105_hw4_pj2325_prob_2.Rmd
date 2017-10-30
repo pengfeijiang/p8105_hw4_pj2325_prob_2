@@ -59,4 +59,4 @@ combined_data %>%
     ylab("GDP value") + xlab("Days")
 ```
 
-According to the plot, we can see the GDP follows a
+According to the plot, we can see the GDP seems declines over years. However, there does not seem to be any specific or obvious distribution. With both the highest and lowest years' GDP happened under Democratic presidencies. The GDP seems flatter while a Republican president in office. Hence, I will not say there is strong relationship between GDP and presidency.
